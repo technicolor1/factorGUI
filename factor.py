@@ -13,6 +13,10 @@ def factors(n):
 
 
 def clean_up(result):
+    """
+    slices first and last factors, as they are usually 1 and the number itself
+    also used to determine via GUI if number is prime
+    """
     result = list(result)
     result = result[1:len(result) - 1]
     if not result:

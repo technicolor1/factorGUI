@@ -30,7 +30,7 @@ class FactorGUI:
         self.options.add_separator()
         self.options.add_command(label="Quit", command=self.main_window.destroy)
 
-        self.menubar.add_cascade(label="Tools", menu=self.options)
+        self.menubar.add_cascade(label="Menu", menu=self.options)
 
         # frames of main window
         self.top_frame = tkinter.Frame()
@@ -112,7 +112,7 @@ class FactorGUI:
             self.scroll.delete(1.0, END)
 
             for i in range(0, len(result)):
-                self.scroll.insert('insert', "#" + str(i + 1) + ": " + result[i] + "\n")
+                self.scroll.insert('insert', "# %s: %s \n" % (i + 1, result[i]))
 
             self.scroll.pack()
 
