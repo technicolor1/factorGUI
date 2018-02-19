@@ -53,7 +53,7 @@ class FactorGUI:
                                        command=self.main_window.destroy)
 
         self.describe_label = tkinter.Label(self.bottom_frame,
-                                            text="Factors available",
+                                            text="Factors available: ",
                                             font=("Arial Bold", 15))
 
         self.describe_label.pack(side='left')
@@ -88,11 +88,11 @@ class FactorGUI:
         try:
             num = int(num)
         except ValueError or TypeError:
-            messagebox.showerror(title="Wrong number", message=str(num) + " is not a whole number!")
+            messagebox.showerror("Wrong number", f'"{str(num)}" is not a whole number!')
             return
 
         if num < 0:
-            messagebox.showerror(title="Wrong number", message=str(num) + " is not a positive number!")
+            messagebox.showerror("Wrong number", f'"{str(num)}" is not a positive number!')
             return
 
         self.calculate(num)
@@ -106,13 +106,13 @@ class FactorGUI:
 
         if not result:
             self.scroll.delete(1.0, END)
-            self.scroll.insert('insert', format(num, ",") + " is a prime number!")
+            self.scroll.insert('insert', f"{format(num, ',')} is a prime number!")
             self.scroll.pack()
         else:
             self.scroll.delete(1.0, END)
 
             for i in range(0, len(result)):
-                self.scroll.insert('insert', "# %s: %s \n" % (i + 1, result[i]))
+                self.scroll.insert('insert', f"# {i + 1}: {result[i]} \n")
 
             self.scroll.pack()
 
